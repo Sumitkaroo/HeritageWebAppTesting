@@ -29,6 +29,15 @@ public class Main {
 
         driver.findElement(By.partialLinkText("Sell")).click();
 
+
+        //tag attribute tag[attribute='value']
+        driver.findElement(By.cssSelector("[placeholder='Mobile Number']")).sendKeys("8800012365");
+
+        driver.findElement(By.linkText("Contact")).click();
+        //tag id tag#id
+        driver.findElement(By.cssSelector("input#input_comp-k5xo3y0u")).sendKeys("abc@gmail.com");
+        //  driver.findElement(By.cssSelector("input_comp-k5xo3y0u")).sendKeys("abc@gmail.com");
+
         driver.quit();
 
     }
