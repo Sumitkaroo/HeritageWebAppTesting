@@ -36,7 +36,17 @@ public class Main {
         driver.findElement(By.linkText("Contact")).click();
         //tag id tag#id
         driver.findElement(By.cssSelector("input#input_comp-k5xo3y0u")).sendKeys("abc@gmail.com");
-        //  driver.findElement(By.cssSelector("input_comp-k5xo3y0u")).sendKeys("abc@gmail.com");
+
+        //Absolute xpath
+        driver.findElement(By.xpath("/html/body/div/div/div[3]/div/main/div/div/div/div[2]/div/div/div/section/div[2]/div/div[5]/div/div/form/div/div/div[3]/div/input")).sendKeys("808802564");
+
+        //Relative xpath
+        driver.findElement(By.xpath("//*[@id=\"textarea_comp-k5xo3y15\"]")).sendKeys("Test Demo");
+
+        //xpath with multiple attribute
+        driver.findElement(By.xpath("//input[@name='name' and @placeholder='Name'] ")).sendKeys("Raj");
+
+
 
         driver.quit();
 
