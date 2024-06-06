@@ -46,6 +46,17 @@ public class Main {
         //xpath with multiple attribute
         driver.findElement(By.xpath("//input[@name='name' and @placeholder='Name'] ")).sendKeys("Raj");
 
+        driver.findElement(By.className("_YMhZp")).click();
+
+        //xpath using descendant and ancestor
+        //descendant
+        driver.findElement(By.xpath("//div[@data-mesh-id=\"comp-k8vx9n7oinlineContent-gridContainer\"]/descendant::span[@class=\"l7_2fn wixui-button__label\"][4]")).click();
+
+        //Navigating to Homepage
+        driver.findElement(By.className("_YMhZp")).click();
+
+        //Ancestor
+        driver.findElement(By.xpath("//span[@class=\"l7_2fn wixui-button__label\" and text()='MIDC Auction']/ancestor::div[2]"));
 
 
         driver.quit();
