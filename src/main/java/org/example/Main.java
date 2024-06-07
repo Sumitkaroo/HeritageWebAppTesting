@@ -7,10 +7,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.sql.SQLOutput;
 import java.util.List;
+import java.util.Set;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         WebDriverManager.chromedriver().browserVersion("125.0.6422.142").setup();
 
@@ -55,11 +57,40 @@ public class Main {
         //Navigating to Homepage
         driver.findElement(By.className("_YMhZp")).click();
 
+
         //Ancestor
-        driver.findElement(By.xpath("//span[@class=\"l7_2fn wixui-button__label\" and text()='MIDC Auction']/ancestor::div[2]"));
+        //driver.findElement(By.xpath("//span[@class=\"l7_2fn wixui-button__label\"]/ancestor::section")).click();
+
+        //get methods
+        System.out.println(driver.getTitle());
+        System.out.println(driver.getCurrentUrl());
+        System.out.println(driver.getWindowHandle());
 
 
+        //conditional method
+        WebElement info=driver.findElement(By.xpath("//span[@style=\"text-decoration:underline;\"]"));
+        System.out.println(info.isDisplayed());
+
+        driver.findElement(By.xpath("//*[@id=\"comp-k8vx9nll\"]/a/span")).click();
+        Thread.sleep(5000);
+        boolean b=driver.findElement(By.xpath("//*[@id=\"comp-k8y1dfb8\"]/button/div/span[1]")).isEnabled();
+        System.out.println(b);
+
+        Thread.sleep(3000);
+        //Example of Ancestor
+        driver.findElement(By.xpath("//img[@alt='LinkedIn']/ancestor::a")).click();
+        Thread.sleep(5000);
+        Set<String> windows=driver.getWindowHandles();
+        for(String e:windows){
+            System.out.println(e);
+        }
+        //System.out.println("Windows ids are:"+windows);
+
+        //Browser method
+        //driver.close();
         driver.quit();
+
+
 
     }
 }
