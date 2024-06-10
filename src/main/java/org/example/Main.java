@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Set;
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
 
         WebDriverManager.chromedriver().browserVersion("125.0.6422.142").setup();
 
