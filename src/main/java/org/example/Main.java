@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.Set;
 
@@ -18,6 +19,7 @@ public class Main {
         WebDriver driver=new ChromeDriver();
         driver.get("https://www.heritageenterprises.in/");
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         List<WebElement> links=driver.findElements(By.tagName("a"));
         System.out.println(links.size());
         for(WebElement e:links){
@@ -71,14 +73,11 @@ public class Main {
         System.out.println(info.isDisplayed());
 
         driver.findElement(By.xpath("//*[@id=\"comp-k8vx9nll\"]/a/span")).click();
-        Thread.sleep(5000);
         boolean b=driver.findElement(By.xpath("//*[@id=\"comp-k8y1dfb8\"]/button/div/span[1]")).isEnabled();
         System.out.println(b);
 
-        Thread.sleep(3000);
         //Example of Ancestor
         driver.findElement(By.xpath("//img[@alt='LinkedIn']/ancestor::a")).click();
-        Thread.sleep(5000);
         Set<String> windows=driver.getWindowHandles();
         for(String e:windows){
             System.out.println(e);
