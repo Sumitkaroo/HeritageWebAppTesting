@@ -25,17 +25,20 @@ public class Blogspot {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        driver.findElement(By.xpath("//*[@id=\"productTable\"]/tbody/tr[1]/td[4]/input")).click();
+
+
         driver.findElement(By.id("Wikipedia1_wikipedia-search-input")).sendKeys("Selenium");
         driver.findElement(By.className("wikipedia-search-button")).click();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         //to search from that specific session
         WebElement session=driver.findElement(By.className("wikipedia-search-main-container"));
         List<WebElement> link=session.findElements(By.tagName("a"));
         System.out.println(link.size());
-        int n= link.size();
 
         //for loop to click on each link
-        for(int i=0;i< link.size();i++){
+        for(int i=0;i<link.size();i++){
             WebElement links = link.get(i);
             System.out.println(links.getAttribute("href"));
             links.click();
