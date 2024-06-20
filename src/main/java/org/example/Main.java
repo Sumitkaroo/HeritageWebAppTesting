@@ -27,6 +27,7 @@ public class Main {
             System.out.println(getlink);
         }
 
+
         List<WebElement> images=driver.findElements(By.tagName("img"));
         System.out.println("Total Images present in Home Page are: "+images.size());
 
