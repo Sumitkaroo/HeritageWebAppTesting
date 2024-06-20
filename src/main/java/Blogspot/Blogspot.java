@@ -27,8 +27,6 @@ public class Blogspot {
         WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
 
         driver.findElement(By.xpath("//*[@id=\"productTable\"]/tbody/tr[1]/td[4]/input")).click();
-
-
         driver.findElement(By.id("Wikipedia1_wikipedia-search-input")).sendKeys("Selenium");
         driver.findElement(By.className("wikipedia-search-button")).click();
         Thread.sleep(3000);
