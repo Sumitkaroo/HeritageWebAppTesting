@@ -21,6 +21,7 @@ public class Blogspot {
 
         WebDriver driver=new ChromeDriver();
 
+
         driver.get("https://testautomationpractice.blogspot.com/");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
